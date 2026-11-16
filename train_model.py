@@ -19,12 +19,15 @@ Project: Sentiment Analysis of Customer Reviews Using Machine Learning
 =================================================================================
 """
 
+import os
 import pandas as pd
 import numpy as np
 import re
 import string
 import json
 import joblib
+import matplotlib
+matplotlib.use("Agg")
 import matplotlib.pyplot as plt
 import seaborn as sns
 
@@ -41,11 +44,12 @@ from sklearn.metrics import (
     classification_report,
 )
 
-DATASET_PATH = "dataset/reviews.csv"
-MODEL_PATH = "models/sentiment_model.pkl"
-VECTORIZER_PATH = "models/tfidf_vectorizer.pkl"
-LABEL_ENCODER_PATH = "models/label_encoder.pkl"
-METRICS_PATH = "metrics.json"
+BASE_DIR = os.path.dirname(os.path.abspath(__file__))
+DATASET_PATH = os.path.join(BASE_DIR, "dataset", "reviews.csv")
+MODEL_PATH = os.path.join(BASE_DIR, "models", "sentiment_model.pkl")
+VECTORIZER_PATH = os.path.join(BASE_DIR, "models", "tfidf_vectorizer.pkl")
+LABEL_ENCODER_PATH = os.path.join(BASE_DIR, "models", "label_encoder.pkl")
+METRICS_PATH = os.path.join(BASE_DIR, "metrics.json")
 TEST_SIZE = 0.2
 RANDOM_STATE = 42
 
@@ -232,6 +236,7 @@ def evaluate_model(model, X_test_tfidf, y_test, le):
 def save_artifacts(model, vectorizer, le):
     """Save the trained model, TF-IDF vectorizer, and label encoder as pickles."""
     print("\n[9/9] Saving model and vectorizer...")
+    os.makedirs(os.path.join(BASE_DIR, "models"), exist_ok=True)
     joblib.dump(model, MODEL_PATH)
     joblib.dump(vectorizer, VECTORIZER_PATH)
     joblib.dump(le, LABEL_ENCODER_PATH)

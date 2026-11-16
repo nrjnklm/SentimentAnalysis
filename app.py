@@ -99,17 +99,25 @@ def load_model_artifacts():
 
     The SAME fitted artifacts produced by train_model.py are used here, so
     training-time and inference-time preprocessing/encoding are identical.
-    """
-    model_path = "models/sentiment_model.pkl"
-    vectorizer_path = "models/tfidf_vectorizer.pkl"
-    encoder_path = "models/label_encoder.pkl"
 
-    if (not os.path.exists(model_path)
-            or not os.path.exists(vectorizer_path)
-            or not os.path.exists(encoder_path)):
-        # Train model if files don't exist (e.g. fresh deployment)
-        import subprocess
-        subprocess.run([sys.executable, "train_model.py"], check=True)
+    No automatic retraining is performed: the model artifacts must be trained
+    locally with `python train_model.py` and committed to the repository.
+    """
+    base_dir = os.path.dirname(os.path.abspath(__file__))
+    model_path = os.path.join(base_dir, "models", "sentiment_model.pkl")
+    vectorizer_path = os.path.join(base_dir, "models", "tfidf_vectorizer.pkl")
+    encoder_path = os.path.join(base_dir, "models", "label_encoder.pkl")
+
+    missing = [p for p in [model_path, vectorizer_path, encoder_path]
+               if not os.path.exists(p)]
+    if missing:
+        raise FileNotFoundError(
+            "Required model artifacts are missing: "
+            + ", ".join(missing)
+            + ". Train the model locally with `python train_model.py` and "
+              "commit models/sentiment_model.pkl, models/tfidf_vectorizer.pkl "
+              "and models/label_encoder.pkl to the repository before deploying."
+        )
 
     model = joblib.load(model_path)
     vectorizer = joblib.load(vectorizer_path)

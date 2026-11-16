@@ -10,9 +10,6 @@ venv/
 env/
 .venv/
 
-# Model files (large binary files - typically not committed to git)
-models/*.pkl
-
 # IDE
 .vscode/
 .idea/
