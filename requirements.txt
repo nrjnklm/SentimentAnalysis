@@ -1,8 +1,9 @@
-# Pinned versions for reproducible Streamlit Cloud deployment
-streamlit==1.28.1
-pandas==2.0.3
-numpy==1.24.4
-scikit-learn==1.3.0
-matplotlib==3.7.2
-seaborn==0.12.2
-joblib==1.3.1
+# Pinned versions for reproducible Streamlit Cloud deployment (Python 3.12 compatible)
+# All packages ship cp312 prebuilt wheels; no source builds / distutils required.
+streamlit==1.35.0
+pandas==2.2.3
+numpy==1.26.4
+scikit-learn==1.4.2
+matplotlib==3.8.6
+seaborn==0.13.2
+joblib==1.4.2
