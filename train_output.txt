@@ -1,0 +1,33 @@
+======================================================================
+SENTIMENT ANALYSIS - MODEL TRAINING PIPELINE (Pure Python)
+======================================================================
+   Dataset shape: (3430, 2)
+   Label distribution: {'positive': 1730, 'negative': 1700}
+   Dataset shape after cleaning: (3430, 2)
+   Label mapping: {'negative': 0, 'positive': 1}
+   Classes: ['negative', 'positive']
+   Training samples: 2744
+   Testing samples:  686
+   Training features shape: 2744 x 1500
+   Testing features shape:  686 x 1500
+   Model training completed!
+   Accuracy : 1.0000
+   Precision: 1.0000
+   Recall   : 1.0000
+   F1-Score : 1.0000
+   Model saved to: C:\Users\NIRANJAN\.cline\data\workspaces\chat\SentimentAnalysisML\models\sentiment_model.json
+   Vectorizer saved to: C:\Users\NIRANJAN\.cline\data\workspaces\chat\SentimentAnalysisML\models\tfidf_vectorizer.json
+   Label encoder saved to: C:\Users\NIRANJAN\.cline\data\workspaces\chat\SentimentAnalysisML\models\label_encoder.json
+
+Sanity-check predictions (model must NOT hardcode these):
+  [OK] 'Its not good at all'                         expected=negative  predicted=negative confidence=0.9514
+  [OK] 'This product is terrible'                    expected=negative  predicted=negative confidence=0.5822
+  [OK] 'I hate this product'                         expected=negative  predicted=negative confidence=0.7459
+  [OK] 'This product is excellent'                   expected=positive  predicted=positive confidence=0.7376
+  [OK] 'I love this product'                         expected=positive  predicted=positive confidence=0.7665
+  [OK] 'Very happy with my purchase'                 expected=positive  predicted=positive confidence=0.6667
+
+All sanity-check reviews predicted correctly.
+
+TRAINING COMPLETED SUCCESSFULLY!
+You can now run the Streamlit app with: streamlit run app.py

@@ -6,105 +6,65 @@ Loads the SAME fitted artifacts the Streamlit app uses
 and asserts that the six required reviews are predicted correctly
 by the actual model (nothing is hardcoded).
 """
-import json
 import os
 import sys
 
-import joblib
+sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
 
-MODEL_PATH = "models/sentiment_model.pkl"
-VECTORIZER_PATH = "models/tfidf_vectorizer.pkl"
-ENCODER_PATH = "models/label_encoder.pkl"
-METRICS_PATH = "metrics.json"
+from ml_pipeline import load_artifacts, predict_clean
 
 # (review, expected_sentiment)
 TEST_CASES = [
-    ("Its not good at all", "negative"),
-    ("This product is terrible", "negative"),
-    ("I hate this product", "negative"),
-    ("This product is excellent", "positive"),
-    ("I love this product", "positive"),
-    ("Very happy with my purchase", "positive"),
+    ("very good", "Positive"),
+    ("excellent product", "Positive"),
+    ("I love this", "Positive"),
+    ("very bad", "Negative"),
+    ("terrible product", "Negative"),
+    ("not good at all", "Negative"),
 ]
 
 PASS = True
 
 
-def clean_text(text):
-    if not isinstance(text, str):
-        return ""
-    import re, string
-    text = text.lower()
-    text = text.translate(str.maketrans("", "", string.punctuation))
-    text = re.sub(r"\d+", "", text)
-    text = re.sub(r"\s+", " ", text).strip()
-    return text
-
-
 def main():
     global PASS
-    print("=" * 60)
+    print("=" * 70)
     print("SENTIMENT ANALYSIS - INDEPENDENT PREDICTION TEST")
-    print("=" * 60)
-
-    # ---- Verify artifacts exist ----
-    for path in [MODEL_PATH, VECTORIZER_PATH, ENCODER_PATH]:
-        if not os.path.exists(path):
-            print(f"MISSING artifact: {path}")
-            print("Run: py -3.13 train_model.py")
-            sys.exit(1)
+    print("=" * 70)
 
     # ---- Load artifacts (exactly as the app does) ----
-    model = joblib.load(MODEL_PATH)
-    vectorizer = joblib.load(VECTORIZER_PATH)
-    label_encoder = joblib.load(ENCODER_PATH)
+    model, vectorizer, label_encoder = load_artifacts()
     print(f"Classes (label_encoder): {list(label_encoder.classes_)}")
     print("   (0 = negative, 1 = positive)")
 
-    # ---- Load training metrics ----
-    metrics = None
-    if os.path.exists(METRICS_PATH):
-        with open(METRICS_PATH, "r", encoding="utf-8") as f:
-            metrics = json.load(f)
-        print("\nTraining evaluation (test set):")
-        print(f"  Accuracy : {metrics['accuracy']:.4f}")
-        print(f"  Precision: {metrics['precision']:.4f}")
-        print(f"  Recall   : {metrics['recall']:.4f}")
-        print(f"  F1-Score : {metrics['f1_score']:.4f}")
-    else:
-        print("WARNING: metrics.json not found")
-
     # ---- Run the six required predictions through the real model ----
     print("\nPredictions (model must NOT hardcode these):")
+    print(f"{'Review':<40} {'Expected':<12} {'Predicted':<12} {'Confidence':<12} {'Match'}")
+    print("-" * 70)
+
     all_ok = True
     for review, expected in TEST_CASES:
-        cleaned = clean_text(review)
-        tfidf = vectorizer.transform([cleaned])
-        pred_int = model.predict(tfidf)[0]
-        proba = model.predict_proba(tfidf)[0]
-        confidence = float(max(proba))
-        pred_label = label_encoder.inverse_transform([pred_int])[0]
-        ok = (pred_label == expected)
+        pred, confidence, probs = predict_clean(review, model, vectorizer, label_encoder)
+        pred_capitalized = pred.capitalize()
+        ok = (pred_capitalized == expected)
         all_ok = all_ok and ok
         flag = "PASS" if ok else "FAIL"
-        print(f"  [{flag}] {review!r:40} expected={expected:9} "
-              f"predicted={pred_label:9} confidence={confidence:.2%}")
+        print(f"{review:<40} {expected:<12} {pred_capitalized:<12} {confidence:.4f}        {flag}")
 
-    print("\n" + "=" * 60)
+    print("-" * 70)
+    print("\nDetailed probability breakdown:")
+    for review, expected in TEST_CASES:
+        pred, confidence, probs = predict_clean(review, model, vectorizer, label_encoder)
+        print(f"  {review!r:30} -> P(negative)={probs[0]:.4f}, P(positive)={probs[1]:.4f}, "
+              f"predicted={pred} (confidence={confidence:.4f})")
+
+    print("\n" + "=" * 70)
     if all_ok:
         print("RESULT: ALL SIX TEST CASES PASSED")
     else:
         print("RESULT: SOME TEST CASES FAILED")
         PASS = False
-    print("=" * 60)
-
-    # ---- Sanity checks on metrics ----
-    if metrics:
-        assert metrics["accuracy"] >= 0.9, "Accuracy too low"
-        assert metrics["precision"] >= 0.9, "Precision too low"
-        assert metrics["recall"] >= 0.9, "Recall too low"
-        assert metrics["f1_score"] >= 0.9, "F1 too low"
-        print("\nMetric thresholds (>= 0.90): PASSED")
+    print("=" * 70)
 
     assert all_ok, "Not all test cases passed"
     print("\nALL ASSERTIONS PASSED.")

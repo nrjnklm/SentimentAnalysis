@@ -1,0 +1,819 @@
+Traceback (most recent call last):
+  File "<string>", line 1, in <module>
+    import pickletools; pickletools.dis(open('models/tfidf_vectorizer.pkl','rb').read())
+                        ~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\NIRANJAN\AppData\Local\Python\pythoncore-3.15-64\Lib\pickletools.py", line 2475, in dis
+    for opcode, arg, pos in genops(pickle):
+                            ~~~~~~^^^^^^^^
+  File "C:\Users\NIRANJAN\AppData\Local\Python\pythoncore-3.15-64\Lib\pickletools.py", line 2313, in _genops
+    raise ValueError("at position %s, opcode %r unknown" % (
+                     "<unknown>" if pos is None else pos,
+                     code))
+ValueError: at position 3234, opcode b'\r' unknown
+    0: \x80 PROTO      4
+    2: \x95 FRAME      3223
+   11: \x8c SHORT_BINUNICODE 'sklearn.feature_extraction.text'
+   44: \x94 MEMOIZE    (as 0)
+   45: \x8c SHORT_BINUNICODE 'TfidfVectorizer'
+   62: \x94 MEMOIZE    (as 1)
+   63: \x93 STACK_GLOBAL
+   64: \x94 MEMOIZE    (as 2)
+   65: )    EMPTY_TUPLE
+   66: \x81 NEWOBJ
+   67: \x94 MEMOIZE    (as 3)
+   68: }    EMPTY_DICT
+   69: \x94 MEMOIZE    (as 4)
+   70: (    MARK
+   71: \x8c     SHORT_BINUNICODE 'input'
+   78: \x94     MEMOIZE    (as 5)
+   79: \x8c     SHORT_BINUNICODE 'content'
+   88: \x94     MEMOIZE    (as 6)
+   89: \x8c     SHORT_BINUNICODE 'encoding'
+   99: \x94     MEMOIZE    (as 7)
+  100: \x8c     SHORT_BINUNICODE 'utf-8'
+  107: \x94     MEMOIZE    (as 8)
+  108: \x8c     SHORT_BINUNICODE 'decode_error'
+  122: \x94     MEMOIZE    (as 9)
+  123: \x8c     SHORT_BINUNICODE 'strict'
+  131: \x94     MEMOIZE    (as 10)
+  132: \x8c     SHORT_BINUNICODE 'strip_accents'
+  147: \x94     MEMOIZE    (as 11)
+  148: N        NONE
+  149: \x8c     SHORT_BINUNICODE 'preprocessor'
+  163: \x94     MEMOIZE    (as 12)
+  164: N        NONE
+  165: \x8c     SHORT_BINUNICODE 'tokenizer'
+  176: \x94     MEMOIZE    (as 13)
+  177: N        NONE
+  178: \x8c     SHORT_BINUNICODE 'analyzer'
+  188: \x94     MEMOIZE    (as 14)
+  189: \x8c     SHORT_BINUNICODE 'word'
+  195: \x94     MEMOIZE    (as 15)
+  196: \x8c     SHORT_BINUNICODE 'lowercase'
+  207: \x94     MEMOIZE    (as 16)
+  208: \x88     NEWTRUE
+  209: \x8c     SHORT_BINUNICODE 'token_pattern'
+  224: \x94     MEMOIZE    (as 17)
+  225: \x8c     SHORT_BINUNICODE '(?u)\\b\\w\\w+\\b'
+  240: \x94     MEMOIZE    (as 18)
+  241: \x8c     SHORT_BINUNICODE 'stop_words'
+  253: \x94     MEMOIZE    (as 19)
+  254: ]        EMPTY_LIST
+  255: \x94     MEMOIZE    (as 20)
+  256: (        MARK
+  257: \x8c         SHORT_BINUNICODE 'a'
+  260: \x94         MEMOIZE    (as 21)
+  261: \x8c         SHORT_BINUNICODE 'about'
+  268: \x94         MEMOIZE    (as 22)
+  269: \x8c         SHORT_BINUNICODE 'above'
+  276: \x94         MEMOIZE    (as 23)
+  277: \x8c         SHORT_BINUNICODE 'across'
+  285: \x94         MEMOIZE    (as 24)
+  286: \x8c         SHORT_BINUNICODE 'after'
+  293: \x94         MEMOIZE    (as 25)
+  294: \x8c         SHORT_BINUNICODE 'afterwards'
+  306: \x94         MEMOIZE    (as 26)
+  307: \x8c         SHORT_BINUNICODE 'again'
+  314: \x94         MEMOIZE    (as 27)
+  315: \x8c         SHORT_BINUNICODE 'against'
+  324: \x94         MEMOIZE    (as 28)
+  325: \x8c         SHORT_BINUNICODE 'all'
+  330: \x94         MEMOIZE    (as 29)
+  331: \x8c         SHORT_BINUNICODE 'almost'
+  339: \x94         MEMOIZE    (as 30)
+  340: \x8c         SHORT_BINUNICODE 'alone'
+  347: \x94         MEMOIZE    (as 31)
+  348: \x8c         SHORT_BINUNICODE 'along'
+  355: \x94         MEMOIZE    (as 32)
+  356: \x8c         SHORT_BINUNICODE 'already'
+  365: \x94         MEMOIZE    (as 33)
+  366: \x8c         SHORT_BINUNICODE 'also'
+  372: \x94         MEMOIZE    (as 34)
+  373: \x8c         SHORT_BINUNICODE 'although'
+  383: \x94         MEMOIZE    (as 35)
+  384: \x8c         SHORT_BINUNICODE 'always'
+  392: \x94         MEMOIZE    (as 36)
+  393: \x8c         SHORT_BINUNICODE 'am'
+  397: \x94         MEMOIZE    (as 37)
+  398: \x8c         SHORT_BINUNICODE 'among'
+  405: \x94         MEMOIZE    (as 38)
+  406: \x8c         SHORT_BINUNICODE 'amongst'
+  415: \x94         MEMOIZE    (as 39)
+  416: \x8c         SHORT_BINUNICODE 'amoungst'
+  426: \x94         MEMOIZE    (as 40)
+  427: \x8c         SHORT_BINUNICODE 'amount'
+  435: \x94         MEMOIZE    (as 41)
+  436: \x8c         SHORT_BINUNICODE 'an'
+  440: \x94         MEMOIZE    (as 42)
+  441: \x8c         SHORT_BINUNICODE 'and'
+  446: \x94         MEMOIZE    (as 43)
+  447: \x8c         SHORT_BINUNICODE 'another'
+  456: \x94         MEMOIZE    (as 44)
+  457: \x8c         SHORT_BINUNICODE 'any'
+  462: \x94         MEMOIZE    (as 45)
+  463: \x8c         SHORT_BINUNICODE 'anyhow'
+  471: \x94         MEMOIZE    (as 46)
+  472: \x8c         SHORT_BINUNICODE 'anyone'
+  480: \x94         MEMOIZE    (as 47)
+  481: \x8c         SHORT_BINUNICODE 'anything'
+  491: \x94         MEMOIZE    (as 48)
+  492: \x8c         SHORT_BINUNICODE 'anyway'
+  500: \x94         MEMOIZE    (as 49)
+  501: \x8c         SHORT_BINUNICODE 'anywhere'
+  511: \x94         MEMOIZE    (as 50)
+  512: \x8c         SHORT_BINUNICODE 'are'
+  517: \x94         MEMOIZE    (as 51)
+  518: \x8c         SHORT_BINUNICODE 'around'
+  526: \x94         MEMOIZE    (as 52)
+  527: \x8c         SHORT_BINUNICODE 'as'
+  531: \x94         MEMOIZE    (as 53)
+  532: \x8c         SHORT_BINUNICODE 'at'
+  536: \x94         MEMOIZE    (as 54)
+  537: \x8c         SHORT_BINUNICODE 'back'
+  543: \x94         MEMOIZE    (as 55)
+  544: \x8c         SHORT_BINUNICODE 'be'
+  548: \x94         MEMOIZE    (as 56)
+  549: \x8c         SHORT_BINUNICODE 'became'
+  557: \x94         MEMOIZE    (as 57)
+  558: \x8c         SHORT_BINUNICODE 'because'
+  567: \x94         MEMOIZE    (as 58)
+  568: \x8c         SHORT_BINUNICODE 'become'
+  576: \x94         MEMOIZE    (as 59)
+  577: \x8c         SHORT_BINUNICODE 'becomes'
+  586: \x94         MEMOIZE    (as 60)
+  587: \x8c         SHORT_BINUNICODE 'becoming'
+  597: \x94         MEMOIZE    (as 61)
+  598: \x8c         SHORT_BINUNICODE 'been'
+  604: \x94         MEMOIZE    (as 62)
+  605: \x8c         SHORT_BINUNICODE 'before'
+  613: \x94         MEMOIZE    (as 63)
+  614: \x8c         SHORT_BINUNICODE 'beforehand'
+  626: \x94         MEMOIZE    (as 64)
+  627: \x8c         SHORT_BINUNICODE 'behind'
+  635: \x94         MEMOIZE    (as 65)
+  636: \x8c         SHORT_BINUNICODE 'being'
+  643: \x94         MEMOIZE    (as 66)
+  644: \x8c         SHORT_BINUNICODE 'below'
+  651: \x94         MEMOIZE    (as 67)
+  652: \x8c         SHORT_BINUNICODE 'beside'
+  660: \x94         MEMOIZE    (as 68)
+  661: \x8c         SHORT_BINUNICODE 'besides'
+  670: \x94         MEMOIZE    (as 69)
+  671: \x8c         SHORT_BINUNICODE 'between'
+  680: \x94         MEMOIZE    (as 70)
+  681: \x8c         SHORT_BINUNICODE 'beyond'
+  689: \x94         MEMOIZE    (as 71)
+  690: \x8c         SHORT_BINUNICODE 'bill'
+  696: \x94         MEMOIZE    (as 72)
+  697: \x8c         SHORT_BINUNICODE 'both'
+  703: \x94         MEMOIZE    (as 73)
+  704: \x8c         SHORT_BINUNICODE 'bottom'
+  712: \x94         MEMOIZE    (as 74)
+  713: \x8c         SHORT_BINUNICODE 'but'
+  718: \x94         MEMOIZE    (as 75)
+  719: \x8c         SHORT_BINUNICODE 'by'
+  723: \x94         MEMOIZE    (as 76)
+  724: \x8c         SHORT_BINUNICODE 'call'
+  730: \x94         MEMOIZE    (as 77)
+  731: \x8c         SHORT_BINUNICODE 'can'
+  736: \x94         MEMOIZE    (as 78)
+  737: \x8c         SHORT_BINUNICODE 'cannot'
+  745: \x94         MEMOIZE    (as 79)
+  746: \x8c         SHORT_BINUNICODE 'co'
+  750: \x94         MEMOIZE    (as 80)
+  751: \x8c         SHORT_BINUNICODE 'con'
+  756: \x94         MEMOIZE    (as 81)
+  757: \x8c         SHORT_BINUNICODE 'could'
+  764: \x94         MEMOIZE    (as 82)
+  765: \x8c         SHORT_BINUNICODE 'cry'
+  770: \x94         MEMOIZE    (as 83)
+  771: \x8c         SHORT_BINUNICODE 'de'
+  775: \x94         MEMOIZE    (as 84)
+  776: \x8c         SHORT_BINUNICODE 'describe'
+  786: \x94         MEMOIZE    (as 85)
+  787: \x8c         SHORT_BINUNICODE 'detail'
+  795: \x94         MEMOIZE    (as 86)
+  796: \x8c         SHORT_BINUNICODE 'do'
+  800: \x94         MEMOIZE    (as 87)
+  801: \x8c         SHORT_BINUNICODE 'done'
+  807: \x94         MEMOIZE    (as 88)
+  808: \x8c         SHORT_BINUNICODE 'down'
+  814: \x94         MEMOIZE    (as 89)
+  815: \x8c         SHORT_BINUNICODE 'due'
+  820: \x94         MEMOIZE    (as 90)
+  821: \x8c         SHORT_BINUNICODE 'during'
+  829: \x94         MEMOIZE    (as 91)
+  830: \x8c         SHORT_BINUNICODE 'each'
+  836: \x94         MEMOIZE    (as 92)
+  837: \x8c         SHORT_BINUNICODE 'eg'
+  841: \x94         MEMOIZE    (as 93)
+  842: \x8c         SHORT_BINUNICODE 'eight'
+  849: \x94         MEMOIZE    (as 94)
+  850: \x8c         SHORT_BINUNICODE 'either'
+  858: \x94         MEMOIZE    (as 95)
+  859: \x8c         SHORT_BINUNICODE 'eleven'
+  867: \x94         MEMOIZE    (as 96)
+  868: \x8c         SHORT_BINUNICODE 'else'
+  874: \x94         MEMOIZE    (as 97)
+  875: \x8c         SHORT_BINUNICODE 'elsewhere'
+  886: \x94         MEMOIZE    (as 98)
+  887: \x8c         SHORT_BINUNICODE 'empty'
+  894: \x94         MEMOIZE    (as 99)
+  895: \x8c         SHORT_BINUNICODE 'enough'
+  903: \x94         MEMOIZE    (as 100)
+  904: \x8c         SHORT_BINUNICODE 'etc'
+  909: \x94         MEMOIZE    (as 101)
+  910: \x8c         SHORT_BINUNICODE 'even'
+  916: \x94         MEMOIZE    (as 102)
+  917: \x8c         SHORT_BINUNICODE 'ever'
+  923: \x94         MEMOIZE    (as 103)
+  924: \x8c         SHORT_BINUNICODE 'every'
+  931: \x94         MEMOIZE    (as 104)
+  932: \x8c         SHORT_BINUNICODE 'everyone'
+  942: \x94         MEMOIZE    (as 105)
+  943: \x8c         SHORT_BINUNICODE 'everything'
+  955: \x94         MEMOIZE    (as 106)
+  956: \x8c         SHORT_BINUNICODE 'everywhere'
+  968: \x94         MEMOIZE    (as 107)
+  969: \x8c         SHORT_BINUNICODE 'except'
+  977: \x94         MEMOIZE    (as 108)
+  978: \x8c         SHORT_BINUNICODE 'few'
+  983: \x94         MEMOIZE    (as 109)
+  984: \x8c         SHORT_BINUNICODE 'fifteen'
+  993: \x94         MEMOIZE    (as 110)
+  994: \x8c         SHORT_BINUNICODE 'fifty'
+ 1001: \x94         MEMOIZE    (as 111)
+ 1002: \x8c         SHORT_BINUNICODE 'fill'
+ 1008: \x94         MEMOIZE    (as 112)
+ 1009: \x8c         SHORT_BINUNICODE 'find'
+ 1015: \x94         MEMOIZE    (as 113)
+ 1016: \x8c         SHORT_BINUNICODE 'fire'
+ 1022: \x94         MEMOIZE    (as 114)
+ 1023: \x8c         SHORT_BINUNICODE 'first'
+ 1030: \x94         MEMOIZE    (as 115)
+ 1031: \x8c         SHORT_BINUNICODE 'five'
+ 1037: \x94         MEMOIZE    (as 116)
+ 1038: \x8c         SHORT_BINUNICODE 'for'
+ 1043: \x94         MEMOIZE    (as 117)
+ 1044: \x8c         SHORT_BINUNICODE 'former'
+ 1052: \x94         MEMOIZE    (as 118)
+ 1053: \x8c         SHORT_BINUNICODE 'formerly'
+ 1063: \x94         MEMOIZE    (as 119)
+ 1064: \x8c         SHORT_BINUNICODE 'forty'
+ 1071: \x94         MEMOIZE    (as 120)
+ 1072: \x8c         SHORT_BINUNICODE 'found'
+ 1079: \x94         MEMOIZE    (as 121)
+ 1080: \x8c         SHORT_BINUNICODE 'four'
+ 1086: \x94         MEMOIZE    (as 122)
+ 1087: \x8c         SHORT_BINUNICODE 'from'
+ 1093: \x94         MEMOIZE    (as 123)
+ 1094: \x8c         SHORT_BINUNICODE 'front'
+ 1101: \x94         MEMOIZE    (as 124)
+ 1102: \x8c         SHORT_BINUNICODE 'full'
+ 1108: \x94         MEMOIZE    (as 125)
+ 1109: \x8c         SHORT_BINUNICODE 'further'
+ 1118: \x94         MEMOIZE    (as 126)
+ 1119: \x8c         SHORT_BINUNICODE 'get'
+ 1124: \x94         MEMOIZE    (as 127)
+ 1125: \x8c         SHORT_BINUNICODE 'give'
+ 1131: \x94         MEMOIZE    (as 128)
+ 1132: \x8c         SHORT_BINUNICODE 'go'
+ 1136: \x94         MEMOIZE    (as 129)
+ 1137: \x8c         SHORT_BINUNICODE 'had'
+ 1142: \x94         MEMOIZE    (as 130)
+ 1143: \x8c         SHORT_BINUNICODE 'has'
+ 1148: \x94         MEMOIZE    (as 131)
+ 1149: \x8c         SHORT_BINUNICODE 'have'
+ 1155: \x94         MEMOIZE    (as 132)
+ 1156: \x8c         SHORT_BINUNICODE 'he'
+ 1160: \x94         MEMOIZE    (as 133)
+ 1161: \x8c         SHORT_BINUNICODE 'hence'
+ 1168: \x94         MEMOIZE    (as 134)
+ 1169: \x8c         SHORT_BINUNICODE 'her'
+ 1174: \x94         MEMOIZE    (as 135)
+ 1175: \x8c         SHORT_BINUNICODE 'here'
+ 1181: \x94         MEMOIZE    (as 136)
+ 1182: \x8c         SHORT_BINUNICODE 'hereafter'
+ 1193: \x94         MEMOIZE    (as 137)
+ 1194: \x8c         SHORT_BINUNICODE 'hereby'
+ 1202: \x94         MEMOIZE    (as 138)
+ 1203: \x8c         SHORT_BINUNICODE 'herein'
+ 1211: \x94         MEMOIZE    (as 139)
+ 1212: \x8c         SHORT_BINUNICODE 'hereupon'
+ 1222: \x94         MEMOIZE    (as 140)
+ 1223: \x8c         SHORT_BINUNICODE 'hers'
+ 1229: \x94         MEMOIZE    (as 141)
+ 1230: \x8c         SHORT_BINUNICODE 'herself'
+ 1239: \x94         MEMOIZE    (as 142)
+ 1240: \x8c         SHORT_BINUNICODE 'him'
+ 1245: \x94         MEMOIZE    (as 143)
+ 1246: \x8c         SHORT_BINUNICODE 'himself'
+ 1255: \x94         MEMOIZE    (as 144)
+ 1256: \x8c         SHORT_BINUNICODE 'his'
+ 1261: \x94         MEMOIZE    (as 145)
+ 1262: \x8c         SHORT_BINUNICODE 'how'
+ 1267: \x94         MEMOIZE    (as 146)
+ 1268: \x8c         SHORT_BINUNICODE 'however'
+ 1277: \x94         MEMOIZE    (as 147)
+ 1278: \x8c         SHORT_BINUNICODE 'hundred'
+ 1287: \x94         MEMOIZE    (as 148)
+ 1288: \x8c         SHORT_BINUNICODE 'i'
+ 1291: \x94         MEMOIZE    (as 149)
+ 1292: \x8c         SHORT_BINUNICODE 'ie'
+ 1296: \x94         MEMOIZE    (as 150)
+ 1297: \x8c         SHORT_BINUNICODE 'if'
+ 1301: \x94         MEMOIZE    (as 151)
+ 1302: \x8c         SHORT_BINUNICODE 'in'
+ 1306: \x94         MEMOIZE    (as 152)
+ 1307: \x8c         SHORT_BINUNICODE 'inc'
+ 1312: \x94         MEMOIZE    (as 153)
+ 1313: \x8c         SHORT_BINUNICODE 'indeed'
+ 1321: \x94         MEMOIZE    (as 154)
+ 1322: \x8c         SHORT_BINUNICODE 'interest'
+ 1332: \x94         MEMOIZE    (as 155)
+ 1333: \x8c         SHORT_BINUNICODE 'into'
+ 1339: \x94         MEMOIZE    (as 156)
+ 1340: \x8c         SHORT_BINUNICODE 'is'
+ 1344: \x94         MEMOIZE    (as 157)
+ 1345: \x8c         SHORT_BINUNICODE 'it'
+ 1349: \x94         MEMOIZE    (as 158)
+ 1350: \x8c         SHORT_BINUNICODE 'its'
+ 1355: \x94         MEMOIZE    (as 159)
+ 1356: \x8c         SHORT_BINUNICODE 'itself'
+ 1364: \x94         MEMOIZE    (as 160)
+ 1365: \x8c         SHORT_BINUNICODE 'keep'
+ 1371: \x94         MEMOIZE    (as 161)
+ 1372: \x8c         SHORT_BINUNICODE 'last'
+ 1378: \x94         MEMOIZE    (as 162)
+ 1379: \x8c         SHORT_BINUNICODE 'latter'
+ 1387: \x94         MEMOIZE    (as 163)
+ 1388: \x8c         SHORT_BINUNICODE 'latterly'
+ 1398: \x94         MEMOIZE    (as 164)
+ 1399: \x8c         SHORT_BINUNICODE 'least'
+ 1406: \x94         MEMOIZE    (as 165)
+ 1407: \x8c         SHORT_BINUNICODE 'less'
+ 1413: \x94         MEMOIZE    (as 166)
+ 1414: \x8c         SHORT_BINUNICODE 'ltd'
+ 1419: \x94         MEMOIZE    (as 167)
+ 1420: \x8c         SHORT_BINUNICODE 'made'
+ 1426: \x94         MEMOIZE    (as 168)
+ 1427: \x8c         SHORT_BINUNICODE 'many'
+ 1433: \x94         MEMOIZE    (as 169)
+ 1434: \x8c         SHORT_BINUNICODE 'may'
+ 1439: \x94         MEMOIZE    (as 170)
+ 1440: \x8c         SHORT_BINUNICODE 'me'
+ 1444: \x94         MEMOIZE    (as 171)
+ 1445: \x8c         SHORT_BINUNICODE 'meanwhile'
+ 1456: \x94         MEMOIZE    (as 172)
+ 1457: \x8c         SHORT_BINUNICODE 'might'
+ 1464: \x94         MEMOIZE    (as 173)
+ 1465: \x8c         SHORT_BINUNICODE 'mill'
+ 1471: \x94         MEMOIZE    (as 174)
+ 1472: \x8c         SHORT_BINUNICODE 'mine'
+ 1478: \x94         MEMOIZE    (as 175)
+ 1479: \x8c         SHORT_BINUNICODE 'more'
+ 1485: \x94         MEMOIZE    (as 176)
+ 1486: \x8c         SHORT_BINUNICODE 'moreover'
+ 1496: \x94         MEMOIZE    (as 177)
+ 1497: \x8c         SHORT_BINUNICODE 'most'
+ 1503: \x94         MEMOIZE    (as 178)
+ 1504: \x8c         SHORT_BINUNICODE 'mostly'
+ 1512: \x94         MEMOIZE    (as 179)
+ 1513: \x8c         SHORT_BINUNICODE 'move'
+ 1519: \x94         MEMOIZE    (as 180)
+ 1520: \x8c         SHORT_BINUNICODE 'much'
+ 1526: \x94         MEMOIZE    (as 181)
+ 1527: \x8c         SHORT_BINUNICODE 'must'
+ 1533: \x94         MEMOIZE    (as 182)
+ 1534: \x8c         SHORT_BINUNICODE 'my'
+ 1538: \x94         MEMOIZE    (as 183)
+ 1539: \x8c         SHORT_BINUNICODE 'myself'
+ 1547: \x94         MEMOIZE    (as 184)
+ 1548: \x8c         SHORT_BINUNICODE 'name'
+ 1554: \x94         MEMOIZE    (as 185)
+ 1555: \x8c         SHORT_BINUNICODE 'namely'
+ 1563: \x94         MEMOIZE    (as 186)
+ 1564: \x8c         SHORT_BINUNICODE 'neither'
+ 1573: \x94         MEMOIZE    (as 187)
+ 1574: \x8c         SHORT_BINUNICODE 'never'
+ 1581: \x94         MEMOIZE    (as 188)
+ 1582: \x8c         SHORT_BINUNICODE 'nevertheless'
+ 1596: \x94         MEMOIZE    (as 189)
+ 1597: \x8c         SHORT_BINUNICODE 'next'
+ 1603: \x94         MEMOIZE    (as 190)
+ 1604: \x8c         SHORT_BINUNICODE 'nine'
+ 1610: \x94         MEMOIZE    (as 191)
+ 1611: \x8c         SHORT_BINUNICODE 'nobody'
+ 1619: \x94         MEMOIZE    (as 192)
+ 1620: \x8c         SHORT_BINUNICODE 'none'
+ 1626: \x94         MEMOIZE    (as 193)
+ 1627: \x8c         SHORT_BINUNICODE 'noone'
+ 1634: \x94         MEMOIZE    (as 194)
+ 1635: \x8c         SHORT_BINUNICODE 'nothing'
+ 1644: \x94         MEMOIZE    (as 195)
+ 1645: \x8c         SHORT_BINUNICODE 'now'
+ 1650: \x94         MEMOIZE    (as 196)
+ 1651: \x8c         SHORT_BINUNICODE 'nowhere'
+ 1660: \x94         MEMOIZE    (as 197)
+ 1661: \x8c         SHORT_BINUNICODE 'of'
+ 1665: \x94         MEMOIZE    (as 198)
+ 1666: \x8c         SHORT_BINUNICODE 'off'
+ 1671: \x94         MEMOIZE    (as 199)
+ 1672: \x8c         SHORT_BINUNICODE 'often'
+ 1679: \x94         MEMOIZE    (as 200)
+ 1680: \x8c         SHORT_BINUNICODE 'on'
+ 1684: \x94         MEMOIZE    (as 201)
+ 1685: \x8c         SHORT_BINUNICODE 'once'
+ 1691: \x94         MEMOIZE    (as 202)
+ 1692: \x8c         SHORT_BINUNICODE 'one'
+ 1697: \x94         MEMOIZE    (as 203)
+ 1698: \x8c         SHORT_BINUNICODE 'only'
+ 1704: \x94         MEMOIZE    (as 204)
+ 1705: \x8c         SHORT_BINUNICODE 'onto'
+ 1711: \x94         MEMOIZE    (as 205)
+ 1712: \x8c         SHORT_BINUNICODE 'or'
+ 1716: \x94         MEMOIZE    (as 206)
+ 1717: \x8c         SHORT_BINUNICODE 'other'
+ 1724: \x94         MEMOIZE    (as 207)
+ 1725: \x8c         SHORT_BINUNICODE 'others'
+ 1733: \x94         MEMOIZE    (as 208)
+ 1734: \x8c         SHORT_BINUNICODE 'otherwise'
+ 1745: \x94         MEMOIZE    (as 209)
+ 1746: \x8c         SHORT_BINUNICODE 'our'
+ 1751: \x94         MEMOIZE    (as 210)
+ 1752: \x8c         SHORT_BINUNICODE 'ours'
+ 1758: \x94         MEMOIZE    (as 211)
+ 1759: \x8c         SHORT_BINUNICODE 'ourselves'
+ 1770: \x94         MEMOIZE    (as 212)
+ 1771: \x8c         SHORT_BINUNICODE 'out'
+ 1776: \x94         MEMOIZE    (as 213)
+ 1777: \x8c         SHORT_BINUNICODE 'over'
+ 1783: \x94         MEMOIZE    (as 214)
+ 1784: \x8c         SHORT_BINUNICODE 'own'
+ 1789: \x94         MEMOIZE    (as 215)
+ 1790: \x8c         SHORT_BINUNICODE 'part'
+ 1796: \x94         MEMOIZE    (as 216)
+ 1797: \x8c         SHORT_BINUNICODE 'per'
+ 1802: \x94         MEMOIZE    (as 217)
+ 1803: \x8c         SHORT_BINUNICODE 'perhaps'
+ 1812: \x94         MEMOIZE    (as 218)
+ 1813: \x8c         SHORT_BINUNICODE 'please'
+ 1821: \x94         MEMOIZE    (as 219)
+ 1822: \x8c         SHORT_BINUNICODE 'put'
+ 1827: \x94         MEMOIZE    (as 220)
+ 1828: \x8c         SHORT_BINUNICODE 'rather'
+ 1836: \x94         MEMOIZE    (as 221)
+ 1837: \x8c         SHORT_BINUNICODE 're'
+ 1841: \x94         MEMOIZE    (as 222)
+ 1842: \x8c         SHORT_BINUNICODE 'same'
+ 1848: \x94         MEMOIZE    (as 223)
+ 1849: \x8c         SHORT_BINUNICODE 'see'
+ 1854: \x94         MEMOIZE    (as 224)
+ 1855: \x8c         SHORT_BINUNICODE 'seem'
+ 1861: \x94         MEMOIZE    (as 225)
+ 1862: \x8c         SHORT_BINUNICODE 'seemed'
+ 1870: \x94         MEMOIZE    (as 226)
+ 1871: \x8c         SHORT_BINUNICODE 'seeming'
+ 1880: \x94         MEMOIZE    (as 227)
+ 1881: \x8c         SHORT_BINUNICODE 'seems'
+ 1888: \x94         MEMOIZE    (as 228)
+ 1889: \x8c         SHORT_BINUNICODE 'serious'
+ 1898: \x94         MEMOIZE    (as 229)
+ 1899: \x8c         SHORT_BINUNICODE 'several'
+ 1908: \x94         MEMOIZE    (as 230)
+ 1909: \x8c         SHORT_BINUNICODE 'she'
+ 1914: \x94         MEMOIZE    (as 231)
+ 1915: \x8c         SHORT_BINUNICODE 'should'
+ 1923: \x94         MEMOIZE    (as 232)
+ 1924: \x8c         SHORT_BINUNICODE 'show'
+ 1930: \x94         MEMOIZE    (as 233)
+ 1931: \x8c         SHORT_BINUNICODE 'side'
+ 1937: \x94         MEMOIZE    (as 234)
+ 1938: \x8c         SHORT_BINUNICODE 'since'
+ 1945: \x94         MEMOIZE    (as 235)
+ 1946: \x8c         SHORT_BINUNICODE 'sincere'
+ 1955: \x94         MEMOIZE    (as 236)
+ 1956: \x8c         SHORT_BINUNICODE 'six'
+ 1961: \x94         MEMOIZE    (as 237)
+ 1962: \x8c         SHORT_BINUNICODE 'sixty'
+ 1969: \x94         MEMOIZE    (as 238)
+ 1970: \x8c         SHORT_BINUNICODE 'so'
+ 1974: \x94         MEMOIZE    (as 239)
+ 1975: \x8c         SHORT_BINUNICODE 'some'
+ 1981: \x94         MEMOIZE    (as 240)
+ 1982: \x8c         SHORT_BINUNICODE 'somehow'
+ 1991: \x94         MEMOIZE    (as 241)
+ 1992: \x8c         SHORT_BINUNICODE 'someone'
+ 2001: \x94         MEMOIZE    (as 242)
+ 2002: \x8c         SHORT_BINUNICODE 'something'
+ 2013: \x94         MEMOIZE    (as 243)
+ 2014: \x8c         SHORT_BINUNICODE 'sometime'
+ 2024: \x94         MEMOIZE    (as 244)
+ 2025: \x8c         SHORT_BINUNICODE 'sometimes'
+ 2036: \x94         MEMOIZE    (as 245)
+ 2037: \x8c         SHORT_BINUNICODE 'somewhere'
+ 2048: \x94         MEMOIZE    (as 246)
+ 2049: \x8c         SHORT_BINUNICODE 'still'
+ 2056: \x94         MEMOIZE    (as 247)
+ 2057: \x8c         SHORT_BINUNICODE 'such'
+ 2063: \x94         MEMOIZE    (as 248)
+ 2064: \x8c         SHORT_BINUNICODE 'system'
+ 2072: \x94         MEMOIZE    (as 249)
+ 2073: \x8c         SHORT_BINUNICODE 'take'
+ 2079: \x94         MEMOIZE    (as 250)
+ 2080: \x8c         SHORT_BINUNICODE 'ten'
+ 2085: \x94         MEMOIZE    (as 251)
+ 2086: \x8c         SHORT_BINUNICODE 'than'
+ 2092: \x94         MEMOIZE    (as 252)
+ 2093: \x8c         SHORT_BINUNICODE 'that'
+ 2099: \x94         MEMOIZE    (as 253)
+ 2100: \x8c         SHORT_BINUNICODE 'the'
+ 2105: \x94         MEMOIZE    (as 254)
+ 2106: \x8c         SHORT_BINUNICODE 'their'
+ 2113: \x94         MEMOIZE    (as 255)
+ 2114: \x8c         SHORT_BINUNICODE 'them'
+ 2120: \x94         MEMOIZE    (as 256)
+ 2121: \x8c         SHORT_BINUNICODE 'themselves'
+ 2133: \x94         MEMOIZE    (as 257)
+ 2134: \x8c         SHORT_BINUNICODE 'then'
+ 2140: \x94         MEMOIZE    (as 258)
+ 2141: \x8c         SHORT_BINUNICODE 'thence'
+ 2149: \x94         MEMOIZE    (as 259)
+ 2150: \x8c         SHORT_BINUNICODE 'there'
+ 2157: \x94         MEMOIZE    (as 260)
+ 2158: \x8c         SHORT_BINUNICODE 'thereafter'
+ 2170: \x94         MEMOIZE    (as 261)
+ 2171: \x8c         SHORT_BINUNICODE 'thereby'
+ 2180: \x94         MEMOIZE    (as 262)
+ 2181: \x8c         SHORT_BINUNICODE 'therefore'
+ 2192: \x94         MEMOIZE    (as 263)
+ 2193: \x8c         SHORT_BINUNICODE 'therein'
+ 2202: \x94         MEMOIZE    (as 264)
+ 2203: \x8c         SHORT_BINUNICODE 'thereupon'
+ 2214: \x94         MEMOIZE    (as 265)
+ 2215: \x8c         SHORT_BINUNICODE 'these'
+ 2222: \x94         MEMOIZE    (as 266)
+ 2223: \x8c         SHORT_BINUNICODE 'they'
+ 2229: \x94         MEMOIZE    (as 267)
+ 2230: \x8c         SHORT_BINUNICODE 'thick'
+ 2237: \x94         MEMOIZE    (as 268)
+ 2238: \x8c         SHORT_BINUNICODE 'thin'
+ 2244: \x94         MEMOIZE    (as 269)
+ 2245: \x8c         SHORT_BINUNICODE 'third'
+ 2252: \x94         MEMOIZE    (as 270)
+ 2253: \x8c         SHORT_BINUNICODE 'this'
+ 2259: \x94         MEMOIZE    (as 271)
+ 2260: \x8c         SHORT_BINUNICODE 'those'
+ 2267: \x94         MEMOIZE    (as 272)
+ 2268: \x8c         SHORT_BINUNICODE 'though'
+ 2276: \x94         MEMOIZE    (as 273)
+ 2277: \x8c         SHORT_BINUNICODE 'three'
+ 2284: \x94         MEMOIZE    (as 274)
+ 2285: \x8c         SHORT_BINUNICODE 'through'
+ 2294: \x94         MEMOIZE    (as 275)
+ 2295: \x8c         SHORT_BINUNICODE 'throughout'
+ 2307: \x94         MEMOIZE    (as 276)
+ 2308: \x8c         SHORT_BINUNICODE 'thru'
+ 2314: \x94         MEMOIZE    (as 277)
+ 2315: \x8c         SHORT_BINUNICODE 'thus'
+ 2321: \x94         MEMOIZE    (as 278)
+ 2322: \x8c         SHORT_BINUNICODE 'to'
+ 2326: \x94         MEMOIZE    (as 279)
+ 2327: \x8c         SHORT_BINUNICODE 'together'
+ 2337: \x94         MEMOIZE    (as 280)
+ 2338: \x8c         SHORT_BINUNICODE 'too'
+ 2343: \x94         MEMOIZE    (as 281)
+ 2344: \x8c         SHORT_BINUNICODE 'top'
+ 2349: \x94         MEMOIZE    (as 282)
+ 2350: \x8c         SHORT_BINUNICODE 'toward'
+ 2358: \x94         MEMOIZE    (as 283)
+ 2359: \x8c         SHORT_BINUNICODE 'towards'
+ 2368: \x94         MEMOIZE    (as 284)
+ 2369: \x8c         SHORT_BINUNICODE 'twelve'
+ 2377: \x94         MEMOIZE    (as 285)
+ 2378: \x8c         SHORT_BINUNICODE 'twenty'
+ 2386: \x94         MEMOIZE    (as 286)
+ 2387: \x8c         SHORT_BINUNICODE 'two'
+ 2392: \x94         MEMOIZE    (as 287)
+ 2393: \x8c         SHORT_BINUNICODE 'un'
+ 2397: \x94         MEMOIZE    (as 288)
+ 2398: \x8c         SHORT_BINUNICODE 'under'
+ 2405: \x94         MEMOIZE    (as 289)
+ 2406: \x8c         SHORT_BINUNICODE 'until'
+ 2413: \x94         MEMOIZE    (as 290)
+ 2414: \x8c         SHORT_BINUNICODE 'up'
+ 2418: \x94         MEMOIZE    (as 291)
+ 2419: \x8c         SHORT_BINUNICODE 'upon'
+ 2425: \x94         MEMOIZE    (as 292)
+ 2426: \x8c         SHORT_BINUNICODE 'us'
+ 2430: \x94         MEMOIZE    (as 293)
+ 2431: \x8c         SHORT_BINUNICODE 'very'
+ 2437: \x94         MEMOIZE    (as 294)
+ 2438: \x8c         SHORT_BINUNICODE 'via'
+ 2443: \x94         MEMOIZE    (as 295)
+ 2444: \x8c         SHORT_BINUNICODE 'was'
+ 2449: \x94         MEMOIZE    (as 296)
+ 2450: \x8c         SHORT_BINUNICODE 'we'
+ 2454: \x94         MEMOIZE    (as 297)
+ 2455: \x8c         SHORT_BINUNICODE 'well'
+ 2461: \x94         MEMOIZE    (as 298)
+ 2462: \x8c         SHORT_BINUNICODE 'were'
+ 2468: \x94         MEMOIZE    (as 299)
+ 2469: \x8c         SHORT_BINUNICODE 'what'
+ 2475: \x94         MEMOIZE    (as 300)
+ 2476: \x8c         SHORT_BINUNICODE 'whatever'
+ 2486: \x94         MEMOIZE    (as 301)
+ 2487: \x8c         SHORT_BINUNICODE 'when'
+ 2493: \x94         MEMOIZE    (as 302)
+ 2494: \x8c         SHORT_BINUNICODE 'whence'
+ 2502: \x94         MEMOIZE    (as 303)
+ 2503: \x8c         SHORT_BINUNICODE 'whenever'
+ 2513: \x94         MEMOIZE    (as 304)
+ 2514: \x8c         SHORT_BINUNICODE 'where'
+ 2521: \x94         MEMOIZE    (as 305)
+ 2522: \x8c         SHORT_BINUNICODE 'whereafter'
+ 2534: \x94         MEMOIZE    (as 306)
+ 2535: \x8c         SHORT_BINUNICODE 'whereas'
+ 2544: \x94         MEMOIZE    (as 307)
+ 2545: \x8c         SHORT_BINUNICODE 'whereby'
+ 2554: \x94         MEMOIZE    (as 308)
+ 2555: \x8c         SHORT_BINUNICODE 'wherein'
+ 2564: \x94         MEMOIZE    (as 309)
+ 2565: \x8c         SHORT_BINUNICODE 'whereupon'
+ 2576: \x94         MEMOIZE    (as 310)
+ 2577: \x8c         SHORT_BINUNICODE 'wherever'
+ 2587: \x94         MEMOIZE    (as 311)
+ 2588: \x8c         SHORT_BINUNICODE 'whether'
+ 2597: \x94         MEMOIZE    (as 312)
+ 2598: \x8c         SHORT_BINUNICODE 'which'
+ 2605: \x94         MEMOIZE    (as 313)
+ 2606: \x8c         SHORT_BINUNICODE 'while'
+ 2613: \x94         MEMOIZE    (as 314)
+ 2614: \x8c         SHORT_BINUNICODE 'whither'
+ 2623: \x94         MEMOIZE    (as 315)
+ 2624: \x8c         SHORT_BINUNICODE 'who'
+ 2629: \x94         MEMOIZE    (as 316)
+ 2630: \x8c         SHORT_BINUNICODE 'whoever'
+ 2639: \x94         MEMOIZE    (as 317)
+ 2640: \x8c         SHORT_BINUNICODE 'whole'
+ 2647: \x94         MEMOIZE    (as 318)
+ 2648: \x8c         SHORT_BINUNICODE 'whom'
+ 2654: \x94         MEMOIZE    (as 319)
+ 2655: \x8c         SHORT_BINUNICODE 'whose'
+ 2662: \x94         MEMOIZE    (as 320)
+ 2663: \x8c         SHORT_BINUNICODE 'why'
+ 2668: \x94         MEMOIZE    (as 321)
+ 2669: \x8c         SHORT_BINUNICODE 'will'
+ 2675: \x94         MEMOIZE    (as 322)
+ 2676: \x8c         SHORT_BINUNICODE 'with'
+ 2682: \x94         MEMOIZE    (as 323)
+ 2683: \x8c         SHORT_BINUNICODE 'within'
+ 2691: \x94         MEMOIZE    (as 324)
+ 2692: \x8c         SHORT_BINUNICODE 'without'
+ 2701: \x94         MEMOIZE    (as 325)
+ 2702: \x8c         SHORT_BINUNICODE 'would'
+ 2709: \x94         MEMOIZE    (as 326)
+ 2710: \x8c         SHORT_BINUNICODE 'yet'
+ 2715: \x94         MEMOIZE    (as 327)
+ 2716: \x8c         SHORT_BINUNICODE 'you'
+ 2721: \x94         MEMOIZE    (as 328)
+ 2722: \x8c         SHORT_BINUNICODE 'your'
+ 2728: \x94         MEMOIZE    (as 329)
+ 2729: \x8c         SHORT_BINUNICODE 'yours'
+ 2736: \x94         MEMOIZE    (as 330)
+ 2737: \x8c         SHORT_BINUNICODE 'yourself'
+ 2747: \x94         MEMOIZE    (as 331)
+ 2748: \x8c         SHORT_BINUNICODE 'yourselves'
+ 2760: \x94         MEMOIZE    (as 332)
+ 2761: e            APPENDS    (MARK at 256)
+ 2762: \x8c     SHORT_BINUNICODE 'max_df'
+ 2770: \x94     MEMOIZE    (as 333)
+ 2771: G        BINFLOAT   1.0
+ 2780: \x8c     SHORT_BINUNICODE 'min_df'
+ 2788: \x94     MEMOIZE    (as 334)
+ 2789: K        BININT1    1
+ 2791: \x8c     SHORT_BINUNICODE 'max_features'
+ 2805: \x94     MEMOIZE    (as 335)
+ 2806: M        BININT2    5000
+ 2809: \x8c     SHORT_BINUNICODE 'ngram_range'
+ 2822: \x94     MEMOIZE    (as 336)
+ 2823: K        BININT1    1
+ 2825: K        BININT1    2
+ 2827: \x86     TUPLE2
+ 2828: \x94     MEMOIZE    (as 337)
+ 2829: \x8c     SHORT_BINUNICODE 'vocabulary'
+ 2841: \x94     MEMOIZE    (as 338)
+ 2842: N        NONE
+ 2843: \x8c     SHORT_BINUNICODE 'binary'
+ 2851: \x94     MEMOIZE    (as 339)
+ 2852: \x89     NEWFALSE
+ 2853: \x8c     SHORT_BINUNICODE 'dtype'
+ 2860: \x94     MEMOIZE    (as 340)
+ 2861: \x8c     SHORT_BINUNICODE 'numpy'
+ 2868: \x94     MEMOIZE    (as 341)
+ 2869: \x8c     SHORT_BINUNICODE 'float64'
+ 2878: \x94     MEMOIZE    (as 342)
+ 2879: \x93     STACK_GLOBAL
+ 2880: \x94     MEMOIZE    (as 343)
+ 2881: \x8c     SHORT_BINUNICODE 'norm'
+ 2887: \x94     MEMOIZE    (as 344)
+ 2888: \x8c     SHORT_BINUNICODE 'l2'
+ 2892: \x94     MEMOIZE    (as 345)
+ 2893: \x8c     SHORT_BINUNICODE 'use_idf'
+ 2902: \x94     MEMOIZE    (as 346)
+ 2903: \x88     NEWTRUE
+ 2904: \x8c     SHORT_BINUNICODE 'smooth_idf'
+ 2916: \x94     MEMOIZE    (as 347)
+ 2917: \x88     NEWTRUE
+ 2918: \x8c     SHORT_BINUNICODE 'sublinear_tf'
+ 2932: \x94     MEMOIZE    (as 348)
+ 2933: \x89     NEWFALSE
+ 2934: \x8c     SHORT_BINUNICODE '_tfidf'
+ 2942: \x94     MEMOIZE    (as 349)
+ 2943: h        BINGET     0
+ 2945: \x8c     SHORT_BINUNICODE 'TfidfTransformer'
+ 2963: \x94     MEMOIZE    (as 350)
+ 2964: \x93     STACK_GLOBAL
+ 2965: \x94     MEMOIZE    (as 351)
+ 2966: )        EMPTY_TUPLE
+ 2967: \x81     NEWOBJ
+ 2968: \x94     MEMOIZE    (as 352)
+ 2969: }        EMPTY_DICT
+ 2970: \x94     MEMOIZE    (as 353)
+ 2971: (        MARK
+ 2972: j            LONG_BINGET 344
+ 2977: j            LONG_BINGET 345
+ 2982: j            LONG_BINGET 346
+ 2987: \x88         NEWTRUE
+ 2988: j            LONG_BINGET 347
+ 2993: \x88         NEWTRUE
+ 2994: j            LONG_BINGET 348
+ 2999: \x89         NEWFALSE
+ 3000: \x8c         SHORT_BINUNICODE 'n_features_in_'
+ 3016: \x94         MEMOIZE    (as 354)
+ 3017: M            BININT2    1951
+ 3020: \x8c         SHORT_BINUNICODE 'idf_'
+ 3026: \x94         MEMOIZE    (as 355)
+ 3027: \x8c         SHORT_BINUNICODE 'joblib.numpy_pickle'
+ 3048: \x94         MEMOIZE    (as 356)
+ 3049: \x8c         SHORT_BINUNICODE 'NumpyArrayWrapper'
+ 3068: \x94         MEMOIZE    (as 357)
+ 3069: \x93         STACK_GLOBAL
+ 3070: \x94         MEMOIZE    (as 358)
+ 3071: )            EMPTY_TUPLE
+ 3072: \x81         NEWOBJ
+ 3073: \x94         MEMOIZE    (as 359)
+ 3074: }            EMPTY_DICT
+ 3075: \x94         MEMOIZE    (as 360)
+ 3076: (            MARK
+ 3077: \x8c             SHORT_BINUNICODE 'subclass'
+ 3087: \x94             MEMOIZE    (as 361)
+ 3088: j                LONG_BINGET 341
+ 3093: \x8c             SHORT_BINUNICODE 'ndarray'
+ 3102: \x94             MEMOIZE    (as 362)
+ 3103: \x93             STACK_GLOBAL
+ 3104: \x94             MEMOIZE    (as 363)
+ 3105: \x8c             SHORT_BINUNICODE 'shape'
+ 3112: \x94             MEMOIZE    (as 364)
+ 3113: M                BININT2    1951
+ 3116: \x85             TUPLE1
+ 3117: \x94             MEMOIZE    (as 365)
+ 3118: \x8c             SHORT_BINUNICODE 'order'
+ 3125: \x94             MEMOIZE    (as 366)
+ 3126: \x8c             SHORT_BINUNICODE 'C'
+ 3129: \x94             MEMOIZE    (as 367)
+ 3130: j                LONG_BINGET 340
+ 3135: j                LONG_BINGET 341
+ 3140: \x8c             SHORT_BINUNICODE 'dtype'
+ 3147: \x94             MEMOIZE    (as 368)
+ 3148: \x93             STACK_GLOBAL
+ 3149: \x94             MEMOIZE    (as 369)
+ 3150: \x8c             SHORT_BINUNICODE 'f8'
+ 3154: \x94             MEMOIZE    (as 370)
+ 3155: \x89             NEWFALSE
+ 3156: \x88             NEWTRUE
+ 3157: \x87             TUPLE3
+ 3158: \x94             MEMOIZE    (as 371)
+ 3159: R                REDUCE
+ 3160: \x94             MEMOIZE    (as 372)
+ 3161: (                MARK
+ 3162: K                    BININT1    3
+ 3164: \x8c                 SHORT_BINUNICODE '<'
+ 3167: \x94                 MEMOIZE    (as 373)
+ 3168: N                    NONE
+ 3169: N                    NONE
+ 3170: N                    NONE
+ 3171: J                    BININT     -1
+ 3176: J                    BININT     -1
+ 3181: K                    BININT1    0
+ 3183: t                    TUPLE      (MARK at 3161)
+ 3184: \x94             MEMOIZE    (as 374)
+ 3185: b                BUILD
+ 3186: \x8c             SHORT_BINUNICODE 'allow_mmap'
+ 3198: \x94             MEMOIZE    (as 375)
+ 3199: \x88             NEWTRUE
+ 3200: \x8c             SHORT_BINUNICODE 'numpy_array_alignment_bytes'
+ 3229: \x94             MEMOIZE    (as 376)
+ 3230: K                BININT1    16
+ 3232: u                SETITEMS   (MARK at 3076)
+ 3233: b            BUILD

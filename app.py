@@ -11,7 +11,6 @@ Student Level: Beginner B.Tech CSE (AI & ML)
 """
 
 import streamlit as st
-import joblib
 import os
 import sys
 import re
@@ -21,6 +20,9 @@ import pandas as pd
 import numpy as np
 import matplotlib.pyplot as plt
 import seaborn as sns
+
+sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
+from ml_pipeline import load_artifacts, predict_clean, clean_text as ml_clean_text
 
 st.set_page_config(
     page_title="Sentiment Analysis - Customer Reviews",
@@ -103,42 +105,17 @@ def load_model_artifacts():
     No automatic retraining is performed: the model artifacts must be trained
     locally with `python train_model.py` and committed to the repository.
     """
-    base_dir = os.path.dirname(os.path.abspath(__file__))
-    model_path = os.path.join(base_dir, "models", "sentiment_model.pkl")
-    vectorizer_path = os.path.join(base_dir, "models", "tfidf_vectorizer.pkl")
-    encoder_path = os.path.join(base_dir, "models", "label_encoder.pkl")
-
-    missing = [p for p in [model_path, vectorizer_path, encoder_path]
-               if not os.path.exists(p)]
-    if missing:
-        raise FileNotFoundError(
-            "Required model artifacts are missing: "
-            + ", ".join(missing)
-            + ". Train the model locally with `python train_model.py` and "
-              "commit models/sentiment_model.pkl, models/tfidf_vectorizer.pkl "
-              "and models/label_encoder.pkl to the repository before deploying."
-        )
-
-    model = joblib.load(model_path)
-    vectorizer = joblib.load(vectorizer_path)
-    label_encoder = joblib.load(encoder_path)
+    model, vectorizer, label_encoder = load_artifacts()
     return model, vectorizer, label_encoder
 
 
 def predict_sentiment(review_text, model, vectorizer, label_encoder):
     """Predict sentiment for a given review text.
 
-    The input is cleaned with the same function used during training, then
-    transformed with the fitted TF-IDF vectorizer and classified by the
-    trained model. The encoded integer is mapped back through the saved
-    LabelEncoder so Positive and Negative are never reversed.
+    Uses the same preprocessing and artifacts as training, so predictions
+    are consistent. Positive and Negative are never reversed.
     """
-    cleaned = clean_text(review_text)
-    review_tfidf = vectorizer.transform([cleaned])
-    prediction_int = model.predict(review_tfidf)[0]
-    probabilities = model.predict_proba(review_tfidf)[0]
-    confidence = max(probabilities)
-    prediction = label_encoder.inverse_transform([prediction_int])[0]
+    prediction, confidence, _ = predict_clean(review_text, model, vectorizer, label_encoder)
     return prediction, confidence
 
 

@@ -20,69 +20,15 @@ Project: Sentiment Analysis of Customer Reviews Using Machine Learning
 """
 
 import os
-import pandas as pd
-import numpy as np
-import re
-import string
-import json
-import joblib
-import matplotlib
-matplotlib.use("Agg")
-import matplotlib.pyplot as plt
-import seaborn as sns
+import sys
 
-from sklearn.model_selection import train_test_split
-from sklearn.feature_extraction.text import TfidfVectorizer, ENGLISH_STOP_WORDS
-from sklearn.linear_model import LogisticRegression
-from sklearn.preprocessing import LabelEncoder
-from sklearn.metrics import (
-    accuracy_score,
-    precision_score,
-    recall_score,
-    f1_score,
-    confusion_matrix,
-    classification_report,
-)
+sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
+from ml_pipeline import train_and_save
 
 BASE_DIR = os.path.dirname(os.path.abspath(__file__))
 DATASET_PATH = os.path.join(BASE_DIR, "dataset", "reviews.csv")
-MODEL_PATH = os.path.join(BASE_DIR, "models", "sentiment_model.pkl")
-VECTORIZER_PATH = os.path.join(BASE_DIR, "models", "tfidf_vectorizer.pkl")
-LABEL_ENCODER_PATH = os.path.join(BASE_DIR, "models", "label_encoder.pkl")
-METRICS_PATH = os.path.join(BASE_DIR, "metrics.json")
-TEST_SIZE = 0.2
-RANDOM_STATE = 42
 
-# ---------------------------------------------------------------------------
-# CRITICAL FIX: preserve negation words.
-# sklearn's ENGLISH_STOP_WORDS removes "not", "no", "nor". That was the root
-# cause of "Its not good at all" being predicted as POSITIVE: the vectorizer
-# dropped "not", leaving only "good", which the model associated with positive.
-# We remove negation words from the stop list so the model can learn negation.
-# clean_text strips apostrophes (don't -> dont), so both forms are listed.
-# ---------------------------------------------------------------------------
-NEGATION_WORDS = {
-    "not", "no", "nor",
-    "dont", "doesnt", "didnt", "isnt", "arent", "wasnt", "werent",
-    "cant", "couldnt", "shouldnt", "wont", "wouldnt", "hasnt", "havent", "hadnt",
-    "mustnt", "neednt", "mightn",
-}
-CUSTOM_STOP_WORDS = sorted(w for w in ENGLISH_STOP_WORDS if w not in NEGATION_WORDS)
-
-POSITIVE_LABEL = "positive"
-NEGATIVE_LABEL = "negative"
-
-SAMPLE_REVIEWS = [
-    ("Its not good at all", NEGATIVE_LABEL),
-    ("This product is terrible", NEGATIVE_LABEL),
-    ("I hate this product", NEGATIVE_LABEL),
-    ("This product is excellent", POSITIVE_LABEL),
-    ("I love this product", POSITIVE_LABEL),
-    ("Very happy with my purchase", POSITIVE_LABEL),
-]
-
-
-def load_data(file_path):
+def main():
     """Load the dataset from a CSV file."""
     print(f"[1/9] Loading dataset from: {file_path}")
     df = pd.read_csv(file_path)
