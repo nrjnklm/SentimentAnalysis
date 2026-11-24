@@ -91,6 +91,15 @@ st.markdown("""
         padding: 0.5rem 1rem;
         margin: 0.3rem 0;
         font-size: 0.95rem;
+        color: #212529;
+    }
+    .clause-box .positive-indicator {
+        color: #155724;
+        font-weight: bold;
+    }
+    .clause-box .negative-indicator {
+        color: #721c24;
+        font-weight: bold;
     }
     .section-spacer {
         margin-top: 1rem;
