@@ -314,6 +314,54 @@ def predict_clean(text, model, vectorizer, le):
     label = le.inverse_transform([pred_int])[0]
     confidence = max(probs)
     return label, confidence, probs
+
+
+# --- IMDb-specific artifacts (Stage 2) ------------------------------------------
+MODEL_PATH_IMDB = os.path.join(BASE_DIR, "models", "sentiment_model_imdb.json")
+VECTORIZER_PATH_IMDB = os.path.join(BASE_DIR, "models", "tfidf_vectorizer_imdb.json")
+LABEL_ENCODER_PATH_IMDB = os.path.join(BASE_DIR, "models", "label_encoder_imdb.json")
+METRICS_PATH_IMDB = os.path.join(BASE_DIR, "models", "metrics_imdb.json")
+
+
+def preprocess_imdb_text(text):
+    """
+    Careful preprocessing for IMDb reviews, matching Stage 2 training exactly.
+    - Strip HTML tags (e.g. <br />)
+    - Lowercase
+    - Collapse whitespace
+    - Preserve negation words, intensifiers, punctuation, digits
+    """
+    text = re.sub(r"<[^>]+>", " ", text)
+    text = text.lower()
+    text = re.sub(r"\s+", " ", text).strip()
+    return text
+
+
+def load_imdb_artifacts():
+    """Load the Stage 2 IMDb-trained model, vectorizer, and label encoder from JSON."""
+    with open(MODEL_PATH_IMDB, "r", encoding="utf-8") as f:
+        model = LogisticRegression.from_dict(json.load(f))
+    with open(VECTORIZER_PATH_IMDB, "r", encoding="utf-8") as f:
+        vectorizer = TfidfVectorizer.from_dict(json.load(f))
+    with open(LABEL_ENCODER_PATH_IMDB, "r", encoding="utf-8") as f:
+        label_encoder = LabelEncoder.from_dict(json.load(f))
+    return model, vectorizer, label_encoder
+
+
+def load_imdb_metrics():
+    """Load the Stage 2 IMDb evaluation metrics from JSON."""
+    with open(METRICS_PATH_IMDB, "r", encoding="utf-8") as f:
+        return json.load(f)
+
+
+def predict_clean_imdb(text, model, vectorizer, le):
+    """Clean text using IMDb preprocessing then predict sentiment label (string)."""
+    cleaned = preprocess_imdb_text(text)
+    tfidf = vectorizer.transform([cleaned])[0]
+    probs = model.predict_proba([tfidf])[0]
+    pred_int = model.predict([tfidf])[0]
+    label = le.inverse_transform([pred_int])[0]
+    confidence = max(probs)
     return label, confidence, probs
 
 

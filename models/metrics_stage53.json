@@ -1,0 +1,102 @@
+{
+  "dataset": "IMDb Large Movie Review",
+  "experiment": "Stage 5.3 - epoch comparison (30 vs 50 vs 100)",
+  "best_epochs": 100,
+  "train_samples": 24877,
+  "test_samples": 25000,
+  "overlaps_removed_from_train": 123,
+  "accuracy": 0.87968,
+  "precision": 0.8748223029537198,
+  "recall": 0.88616,
+  "f1_score": 0.8804546538430967,
+  "confusion_matrix": [
+    [
+      10915,
+      1585
+    ],
+    [
+      1423,
+      11077
+    ]
+  ],
+  "label_mapping": {
+    "0": "negative",
+    "1": "positive"
+  },
+  "training_config": {
+    "preprocessing": "improved (punctuation removed, HTML stripped, lowercase, whitespace collapsed, digits kept)",
+    "vectorizer_max_features": 3000,
+    "vectorizer_ngram_range": [
+      1,
+      2
+    ],
+    "lr": 0.05,
+    "epochs_tested": [
+      30,
+      50,
+      100
+    ],
+    "best_epochs": 100,
+    "C": 1.0,
+    "random_state": 42,
+    "final_loss": 0.33387502945327885,
+    "best_loss": 0.33387502945327885,
+    "n_iter_actual": 100,
+    "all_results": {
+      "30": {
+        "accuracy": 0.86416,
+        "precision": 0.8776966478592765,
+        "recall": 0.84624,
+        "f1_score": 0.8616813294232648,
+        "confusion_matrix": [
+          [
+            11026,
+            1474
+          ],
+          [
+            1922,
+            10578
+          ]
+        ],
+        "final_loss": 0.42393634146276293,
+        "epochs_completed": 30
+      },
+      "50": {
+        "accuracy": 0.868,
+        "precision": 0.8468556778766401,
+        "recall": 0.89848,
+        "f1_score": 0.8719043552519214,
+        "confusion_matrix": [
+          [
+            10469,
+            2031
+          ],
+          [
+            1269,
+            11231
+          ]
+        ],
+        "final_loss": 0.3809984389636973,
+        "epochs_completed": 50
+      },
+      "100": {
+        "accuracy": 0.87968,
+        "precision": 0.8748223029537198,
+        "recall": 0.88616,
+        "f1_score": 0.8804546538430967,
+        "confusion_matrix": [
+          [
+            10915,
+            1585
+          ],
+          [
+            1423,
+            11077
+          ]
+        ],
+        "final_loss": 0.33387502945327885,
+        "epochs_completed": 100
+      }
+    }
+  }
+}

@@ -22,3 +22,16 @@ Thumbs.db
 
 # Jupyter notebooks
 .ipynb_checkpoints/
+
+# Environment variables and secrets
+.env
+.env.*
+!.env.example
+.streamlit/secrets.toml
+.streamlit/credentials.toml
+
+# Logs
+*.log
+
+# Streamlit cache
+.streamlit/cache/

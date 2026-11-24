@@ -1,0 +1,25 @@
+{
+  "dataset": "IMDb Large Movie Review",
+  "train_samples": 24877,
+  "test_samples": 25000,
+  "overlaps_removed_from_train": 123,
+  "train_test_overlap_after_dedup": 0,
+  "accuracy": 0.78144,
+  "precision": 0.7196553446553446,
+  "recall": 0.92208,
+  "f1_score": 0.8083882732501052,
+  "confusion_matrix": [
+    [
+      8010,
+      4490
+    ],
+    [
+      974,
+      11526
+    ]
+  ],
+  "label_mapping": {
+    "0": "negative",
+    "1": "positive"
+  }
+}

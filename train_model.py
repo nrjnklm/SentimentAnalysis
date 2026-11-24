@@ -22,16 +22,28 @@ Project: Sentiment Analysis of Customer Reviews Using Machine Learning
 import os
 import sys
 
+import joblib
+import pandas as pd
+
 sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
 from ml_pipeline import train_and_save
 
 BASE_DIR = os.path.dirname(os.path.abspath(__file__))
 DATASET_PATH = os.path.join(BASE_DIR, "dataset", "reviews.csv")
 
-def main():
-    """Load the dataset from a CSV file."""
+def load_data(file_path):
+    """Load and validate the reviews dataset from a CSV file."""
+    if not os.path.isfile(file_path):
+        raise FileNotFoundError(f"Dataset file not found: {file_path}")
     print(f"[1/9] Loading dataset from: {file_path}")
     df = pd.read_csv(file_path)
+    required_columns = {"review", "sentiment"}
+    missing_columns = required_columns.difference(df.columns)
+    if missing_columns:
+        raise ValueError(
+            "Dataset is missing required column(s): "
+            + ", ".join(sorted(missing_columns))
+        )
     print(f"   Dataset shape: {df.shape}")
     print(f"   Columns: {list(df.columns)}")
     print(f"   Label distribution:\n{df['sentiment'].value_counts().to_dict()}")
